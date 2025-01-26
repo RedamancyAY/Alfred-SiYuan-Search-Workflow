@@ -165,8 +165,28 @@ exit 1
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>需要先配置好端口，在设置-&gt;关于-&gt;用浏览器打开中查看端口号
-usage: sy xx</string>
+	<string>Plase go to  https://github.com/RedamancyAY/Alfred-SiYuan-Search-Workflow to see more info.
+
+
+
+## Environment Variabls
+
+
+First, you must set the python paths to run the python script. Specifically, you can set multiple python paths, separated by `:`. For example:
+```bash
+path/of/python1:path/of/python2:path/of/python3
+```
+
+Second, you can set multiple siyuan workspaces, the format is `SIYUAN_WORKSPACE_xxx`. For example:
+```bash
+SIYUAN_WORKSPACE_1
+SIYUAN_WORKSPACE_2
+SIYUAN_WORKSPACE_3
+```
+
+## Run script
+
+Set a shortcut key or use the keyword: `sy` to use it directly~</string>
 	<key>uidata</key>
 	<dict>
 		<key>4F3D8A39-5B83-4DEE-9F76-CCCAC95731B5</key>
@@ -234,7 +254,7 @@ usage: sy xx</string>
 		<string>SIYUAN_WORKSPACE_2</string>
 	</array>
 	<key>version</key>
-	<string>1.1</string>
+	<string>2025.1.26</string>
 	<key>webaddress</key>
 	<string>https://github.com/RedamancyAY/Alfred-SiYuan-Search-Workflow</string>
 </dict>
