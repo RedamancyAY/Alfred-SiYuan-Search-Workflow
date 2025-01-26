@@ -1,18 +1,50 @@
-# SiYuan-Search-workflow
-针对思源笔记实现的Alfred workflow
+# Alfred-SiYuan-Search-workflow
 
-之所以写这个是因为用notion的时候，就有这么个workflow，让我的Alfred和notion联动的很好，想到什么只需要`option+space`就可以开始搜索了
 
-在网上找了一轮，貌似没有人写过思源笔记的workflow，就打算自己写写，可能因为思源笔记主打的本地存储，所以实现起来的时候发现十分简单，而且思源笔记自带`siyuan://`协议，让他能够精确的直接跳转到行
+This workflow aims to search siyuan content in the Alfred within multiple workspace.
 
-希望思源笔记越做越好！
+If you only have one workspace, you should use [SiYuan-Search-workflow](https://github.com/huamang/SiYuan-Search-workflow),
+which has the same function but is more simple.
 
-# 环境要求
-脚本由python3编写，请确保有python3环境以供运行workflow。
-若遇到问题可以打开Alfred中workflow的debug查看具体报错信息。
+## Python environment
 
-# 使用
+This workflow use `python3` to run the workflow, please make sure you have python3 environment installed.
 
-设定快捷键或者使用关键字：`sy` 就可以直接使用了~
 
-![image-20230204173711204](https://tuchuang.huamang.xyz/img/image-20230204173711204.png)
+## Method
+
+In siyuan, the "path/to/workspace/temp/siyuan.log" file contains the HTTP server port number. Therefore, we can read this log file and obtain the port number.
+
+For example:
+```
+I 2025/01/26 17:37:08 serve.go:189: kernel [pid=31181] http server [127.0.0.1:56004] is booting
+...
+I 2025/01/25 22:21:47 serve.go:189: kernel [pid=88564] http server [0.0.0.0:52916] is booting
+```
+
+After obtaining the port number, we can use the HTTP API to search the content within multiple workspaces.
+
+
+
+## Usage
+
+### Environment Variabls
+![](imgs/env.png)
+
+First, you must set the python paths to run the python script. Specifically, you can set multiple python paths, separated by `:`. For example:
+```bash
+path/of/python1:path/of/python2:path/of/python3
+```
+
+Second, you can set multiple siyuan workspaces, the format is `SIYUAN_WORKSPACE_xxx`. For example:
+```bash
+SIYUAN_WORKSPACE_1
+SIYUAN_WORKSPACE_2
+SIYUAN_WORKSPACE_3
+```
+
+### Run script
+
+Set a shortcut key or use the keyword: `sy` to use it directly~
+
+![](imgs/screenshot.png)

@@ -3,9 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.silentstone.siyuansearch</string>
+	<string>com.RedamancyAY.siyuansearch</string>
+	<key>category</key>
+	<string>ay</string>
 	<key>connections</key>
 	<dict>
+		<key>5137CC88-9685-4D8F-AA6A-8213C488A140</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>6BD44F7D-508B-457A-B294-54067B090028</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>6BD44F7D-508B-457A-B294-54067B090028</key>
 		<array>
 			<dict>
@@ -21,15 +36,46 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>SilentStone</string>
+	<string>RedamancyAY</string>
 	<key>description</key>
-	<string>思源笔记</string>
+	<string>search siyuan within multiple workspaces</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>SiYuan</string>
+	<string>SiYuan-Search</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>5137CC88-9685-4D8F-AA6A-8213C488A140</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -46,7 +92,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>sy</string>
+				<string>sy2</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -58,7 +104,24 @@
 				<key>runningsubtext</key>
 				<string>搜索中...</string>
 				<key>script</key>
-				<string>python3 search.py "{query}"</string>
+				<string>#!/bin/bash
+
+# Get the PYTHON_PATHS variable from Alfred
+IFS=':' read -r -a paths &lt;&lt;&lt; "$PYTHON_PATHS"
+
+# Check each path and find the first valid one
+for path in "${paths[@]}"; do
+    if [ -x "$path" ]; then
+        # Run the Python script with the valid path
+        "$path" main.py "{query}"
+        exit 0
+    fi
+done
+
+# If no valid Python path is found, print an error and exit
+echo "Error: No valid Python path found in PYTHON_PATHS." &gt;&amp;2
+exit 1
+</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -66,7 +129,7 @@
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
-				<string>Note Search</string>
+				<string>Search Note in Siyuan</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -109,16 +172,23 @@ usage: sy xx</string>
 		<key>4F3D8A39-5B83-4DEE-9F76-CCCAC95731B5</key>
 		<dict>
 			<key>xpos</key>
-			<real>405</real>
+			<real>390</real>
 			<key>ypos</key>
-			<real>155</real>
+			<real>265</real>
+		</dict>
+		<key>5137CC88-9685-4D8F-AA6A-8213C488A140</key>
+		<dict>
+			<key>xpos</key>
+			<real>55</real>
+			<key>ypos</key>
+			<real>265</real>
 		</dict>
 		<key>6BD44F7D-508B-457A-B294-54067B090028</key>
 		<dict>
 			<key>xpos</key>
-			<real>135</real>
+			<real>220</real>
 			<key>ypos</key>
-			<real>155</real>
+			<real>265</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -136,20 +206,36 @@ usage: sy xx</string>
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>输入web端端口号，可以在设置-&gt;关于-&gt;在浏览器上使用看到</string>
+			<string></string>
 			<key>label</key>
-			<string>port</string>
+			<string></string>
 			<key>type</key>
 			<string>textfield</string>
 			<key>variable</key>
-			<string>port</string>
+			<string></string>
 		</dict>
 	</array>
+	<key>variables</key>
+	<dict>
+		<key>PYTHON_PATHS</key>
+		<string>/Volumes/GEIL2T/Softwares/anaconda3/bin/python:/Users/ay/SoftwareData/anaconda/anaconda3/envs/torch/bin/python</string>
+		<key>SIYUAN_WORKSPACE_1</key>
+		<string>/Users/ay/SoftwareData/siyuan-noteplan</string>
+		<key>SIYUAN_WORKSPACE_2</key>
+		<string>/Users/ay/SoftwareData/siyuan-micc</string>
+		<key>SIYUAN_WORKSPACE_3</key>
+		<string>/Users/ay/SoftwareData/Siyuan</string>
+	</dict>
 	<key>variablesdontexport</key>
-	<array/>
+	<array>
+		<string>SIYUAN_WORKSPACE_3</string>
+		<string>SIYUAN_WORKSPACE_1</string>
+		<string>PYTHON_PATHS</string>
+		<string>SIYUAN_WORKSPACE_2</string>
+	</array>
 	<key>version</key>
 	<string>1.1</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/RedamancyAY/Alfred-SiYuan-Search-Workflow</string>
 </dict>
 </plist>
