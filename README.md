@@ -53,6 +53,6 @@ Set a shortcut key or use the keyword: `sy` to use it directly~
 
 # test
 
-<a href="https://pub-d5f0132a22cc48c99c2d7e093f1028a6.r2.dev/2022011911355693652034.PDF" >this is a pdf test!</a>
+<a href="https://pub-d5f0132a22cc48c99c2d7e093f1028a6.r2.dev/2022011911355693652034.PDF" download="download" >this is a pdf test!</a>
 
 [test](https://download-direct.github.io/?url=https://pub-d5f0132a22cc48c99c2d7e093f1028a6.r2.dev/2022011911355693652034.PDF)
