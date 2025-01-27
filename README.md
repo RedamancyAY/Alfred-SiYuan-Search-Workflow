@@ -54,20 +54,5 @@ Set a shortcut key or use the keyword: `sy` to use it directly~
 # test
 
 <a href="https://pub-d5f0132a22cc48c99c2d7e093f1028a6.r2.dev/2022011911355693652034.PDF" >this is a pdf test!</a>
-<body>
-  <button onclick="downloadEvt('https://test-jpfile1.oss-cn-shenzhen.aliyuncs.com//Bom/bom/2022/1/19/2022011911370824626513.pdf')">pdf</button>
-  <button onclick="downloadEvt('https://test-jpfile1.oss-cn-shenzhen.aliyuncs.com//Bom/bom/2022/1/19/2022011911355693652034.PDF')">PDF</button>
-  <script>
-    function downloadEvt(url, fileName = '未知文件') {
-      const el = document.createElement('a');
-      el.style.display = 'none';
-      el.setAttribute('target', '_blank');
-      fileName && el.setAttribute('download', fileName);
-      el.href = url;
-      console.log(el);
-      document.body.appendChild(el);
-      el.click();
-      document.body.removeChild(el);
-    }
-  </script>
-</body>
+
+[test](https://download-direct.github.io/?url=https://pub-d5f0132a22cc48c99c2d7e093f1028a6.r2.dev/2022011911355693652034.PDF)
