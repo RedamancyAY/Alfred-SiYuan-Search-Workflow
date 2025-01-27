@@ -232,7 +232,7 @@ Set a shortcut key or use the keyword: `sy` to use it directly~</string>
 		<string>SIYUAN_WORKSPACE_2</string>
 	</array>
 	<key>version</key>
-	<string>2025.1.26</string>
+	<string>1.0.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/RedamancyAY/Alfred-SiYuan-Search-Workflow</string>
 </dict>
