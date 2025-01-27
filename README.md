@@ -53,4 +53,4 @@ Set a shortcut key or use the keyword: `sy` to use it directly~
 
 # test
 
-![|400](https://cdn.jsdelivr.net/gh/RedamancyAY/CloudImage@main/img20250127093050233.PDF)
+- https://cdn.jsdelivr.net/gh/RedamancyAY/CloudImage@main/img20250127093050233.PDF
