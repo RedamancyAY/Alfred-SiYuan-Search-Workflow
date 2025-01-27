@@ -48,3 +48,9 @@ SIYUAN_WORKSPACE_3
 Set a shortcut key or use the keyword: `sy` to use it directly~
 
 ![](imgs/screenshot.png)
+
+
+
+# test
+
+![|400](https://cdn.jsdelivr.net/gh/RedamancyAY/CloudImage@main/img20250127093050233.PDF)
