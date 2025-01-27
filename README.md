@@ -53,4 +53,4 @@ Set a shortcut key or use the keyword: `sy` to use it directly~
 
 # test
 
-- https://cdn.jsdelivr.net/gh/RedamancyAY/CloudImage@main/img20250127093050233.PDF
+<a href="https://pub-d5f0132a22cc48c99c2d7e093f1028a6.r2.dev/2022011911355693652034.PDF" >this is a pdf test!</a>
