@@ -1,12 +1,12 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py
+#     formats: ipynb,py:light
 #     text_representation:
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.16.6
+#       jupytext_version: 1.13.6
 #   kernelspec:
 #     display_name: base
 #     language: python
@@ -53,13 +53,17 @@ def get_http_server_port(workspace_dir: str) -> int:
     log_file = os.path.join(workspace_dir, "temp/siyuan.log")
     port = -1
     # print(log_file)
-    with open(log_file, "r") as f:
-        lines = f.readlines()
-        for line in lines:
-            if "http server" in line:
-                match = re.findall(r'http server \[.*?:(\d+)\]', line)
-                if match:
-                    port = match[-1]
+    try:
+        with open(log_file, "r") as f:
+            lines = f.readlines()
+            for line in lines:
+                if "http server" in line:
+                    match = re.findall(r'http server \[.*?:(\d+)\]', line)
+                    if match:
+                        port = match[-1]
+        print(log_file, port, file=sys.stderr)
+    except FileNotFoundError:
+        port = -1
     return port
 
 
@@ -85,9 +89,14 @@ def fullTextSearchBlock(q:str, port:int):
     searchJson["groupBy"] = 0
     searchJson["orderBy"] = 0
     
-    data = json.dumps(searchJson)
-    url = "http://127.0.0.1:"+ str(port)+"/api/search/fullTextSearchBlock"
-    res = requests.post(url, data)
+    try:
+        data = json.dumps(searchJson)
+        url = "http://127.0.0.1:"+ str(port)+"/api/search/fullTextSearchBlock"
+        res = requests.post(url, data)
+        print(port, data, res.text, file=sys.stderr)
+        # res.raise_for_status()  # Raise an exception for HTTP errors (4xx or 5xx)
+    except requests.exceptions.RequestException as e:
+        return []
     resJson = json.loads(res.text)
     return resJson["data"]["blocks"]
 
